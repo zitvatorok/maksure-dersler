@@ -15,6 +15,7 @@
   --bg: #0f0d0a;
   --bg2: #1a1710;
   --bg3: #242018;
+  --bg4: #2e2a1e;
   --gold: #c9a84c;
   --gold2: #e8c96a;
   --gold-dim: #7a6330;
@@ -23,6 +24,8 @@
   --text3: #6b5f47;
   --green: #4a7c59;
   --red: #8b3a3a;
+  --blue: #3a6b8b;
+  --purple: #6b3a8b;
   --r: 12px;
 }
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
@@ -39,143 +42,34 @@ body {
 
 /* ── LOGIN ── */
 #screen-login {
-  align-items:center;
-  justify-content:center;
+  align-items:center; justify-content:center;
   padding:32px 24px;
   background:radial-gradient(ellipse at 50% 20%, #2a2010 0%, #0f0d0a 70%);
-  gap:0;
 }
-.login-logo {
-  font-family:'Amiri',serif;
-  font-size:56px;
-  color:var(--gold);
-  text-shadow:0 0 40px rgba(201,168,76,0.3);
-  margin-bottom:6px;
-}
-.login-sub {
-  font-size:12px;
-  color:var(--text3);
-  letter-spacing:4px;
-  text-transform:uppercase;
-  margin-bottom:40px;
-}
-.login-ornament {
-  width:80px; height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  margin-bottom:40px;
-}
-.login-card {
-  width:100%;
-  max-width:340px;
-  background:var(--bg2);
-  border:1px solid rgba(201,168,76,0.15);
-  border-radius:16px;
-  padding:28px 24px;
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-}
-.login-field {
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-.login-label {
-  font-size:11px;
-  color:var(--gold);
-  letter-spacing:2px;
-  text-transform:uppercase;
-}
-.login-input {
-  background:var(--bg3);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:10px;
-  padding:13px 16px;
-  color:var(--text);
-  font-size:15px;
-  font-family:'Tajawal',sans-serif;
-  outline:none;
-  transition:border-color 0.2s;
-}
+.login-logo { font-family:'Amiri',serif; font-size:56px; color:var(--gold); text-shadow:0 0 40px rgba(201,168,76,0.3); margin-bottom:6px; }
+.login-sub { font-size:12px; color:var(--text3); letter-spacing:4px; text-transform:uppercase; margin-bottom:40px; }
+.login-ornament { width:80px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin-bottom:40px; }
+.login-card { width:100%; max-width:340px; background:var(--bg2); border:1px solid rgba(201,168,76,0.15); border-radius:16px; padding:28px 24px; display:flex; flex-direction:column; gap:16px; }
+.login-label { font-size:11px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; display:block; }
+.login-input { background:var(--bg3); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:13px 16px; color:var(--text); font-size:15px; font-family:'Tajawal',sans-serif; outline:none; width:100%; transition:border-color 0.2s; }
 .login-input:focus { border-color:rgba(201,168,76,0.4); }
-.login-btn {
-  margin-top:4px;
-  padding:15px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#1a1410;
-  border:none;
-  border-radius:10px;
-  font-family:'Tajawal',sans-serif;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-  transition:all 0.2s;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
+.login-btn { padding:15px; background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#1a1410; border:none; border-radius:10px; font-family:'Tajawal',sans-serif; font-size:16px; font-weight:700; cursor:pointer; transition:all 0.2s; }
 .login-btn:active { transform:scale(0.98); }
 .login-btn:disabled { opacity:0.6; pointer-events:none; }
-.login-note {
-  font-size:12px;
-  color:var(--text3);
-  text-align:center;
-  line-height:1.6;
-  margin-top:8px;
-}
-.login-error {
-  background:rgba(139,58,58,0.15);
-  border:1px solid rgba(139,58,58,0.3);
-  border-radius:8px;
-  padding:10px 14px;
-  font-size:13px;
-  color:#e08080;
-  display:none;
-}
+.login-note { font-size:12px; color:var(--text3); text-align:center; line-height:1.6; }
+.login-error { background:rgba(139,58,58,0.15); border:1px solid rgba(139,58,58,0.3); border-radius:8px; padding:10px 14px; font-size:13px; color:#e08080; display:none; }
 
 /* ── TOPBAR ── */
-.topbar {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 18px;
-  background:var(--bg2);
-  border-bottom:1px solid rgba(201,168,76,0.12);
-  position:sticky; top:0; z-index:100;
-  flex-shrink:0;
-}
+.topbar { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; background:var(--bg2); border-bottom:1px solid rgba(201,168,76,0.12); position:sticky; top:0; z-index:100; flex-shrink:0; }
 .topbar-title { font-family:'Amiri',serif; font-size:20px; color:var(--gold); }
-.topbar-btn {
-  background:none; border:none;
-  color:var(--text2); font-size:20px;
-  cursor:pointer; padding:4px 8px;
-  border-radius:8px; transition:color 0.2s;
-  font-family:'Tajawal',sans-serif;
-}
+.topbar-btn { background:none; border:none; color:var(--text2); font-size:20px; cursor:pointer; padding:4px 8px; border-radius:8px; transition:color 0.2s; font-family:'Tajawal',sans-serif; }
 .topbar-btn:active { color:var(--gold); }
 
 /* ── HOME ── */
-#screen-home { flex-direction:column; }
-.home-scroll { flex:1; overflow-y:auto; padding:16px; }
+.scroll-area { flex:1; overflow-y:auto; padding:16px; }
 
-.resume-card {
-  background:linear-gradient(135deg,#2a1f0e,#1a1710);
-  border:1px solid rgba(201,168,76,0.25);
-  border-radius:var(--r);
-  padding:16px 18px;
-  margin-bottom:18px;
-  cursor:pointer;
-  transition:all 0.2s;
-  position:relative;
-  overflow:hidden;
-  display:none;
-}
-.resume-card::before {
-  content:'';
-  position:absolute; top:0; left:0; right:0; height:2px;
-  background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold));
-}
+.resume-card { background:linear-gradient(135deg,#2a1f0e,#1a1710); border:1px solid rgba(201,168,76,0.25); border-radius:var(--r); padding:16px 18px; margin-bottom:18px; cursor:pointer; transition:all 0.2s; position:relative; overflow:hidden; display:none; }
+.resume-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold)); }
 .resume-card:active { transform:scale(0.99); }
 .resume-label { font-size:10px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-bottom:6px; }
 .resume-title { font-family:'Amiri',serif; font-size:17px; color:var(--text); margin-bottom:3px; }
@@ -185,239 +79,145 @@ body {
 
 .search-wrap { position:relative; margin-bottom:10px; }
 .search-icon { position:absolute; left:13px; top:50%; transform:translateY(-50%); color:var(--text3); font-size:15px; pointer-events:none; }
-.search-input {
-  width:100%; background:var(--bg2);
-  border:1px solid rgba(255,255,255,0.07);
-  border-radius:10px; padding:11px 14px 11px 38px;
-  color:var(--text); font-size:14px;
-  font-family:'Tajawal',sans-serif; outline:none;
-}
+.search-input { width:100%; background:var(--bg2); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:11px 14px 11px 38px; color:var(--text); font-size:14px; font-family:'Tajawal',sans-serif; outline:none; }
 .search-input:focus { border-color:rgba(201,168,76,0.25); }
 
-.cat-row {
-  display:flex; gap:7px; overflow-x:auto;
-  padding:2px 0 12px; scrollbar-width:none;
-}
+.cat-row { display:flex; gap:7px; overflow-x:auto; padding:2px 0 12px; scrollbar-width:none; }
 .cat-row::-webkit-scrollbar { display:none; }
-.cat-btn {
-  white-space:nowrap; padding:6px 13px;
-  border-radius:20px; background:var(--bg2);
-  border:1px solid rgba(255,255,255,0.07);
-  color:var(--text2); font-size:12px;
-  font-family:'Tajawal',sans-serif;
-  cursor:pointer; transition:all 0.15s; flex-shrink:0;
-}
-.cat-btn.active {
-  background:rgba(201,168,76,0.12);
-  border-color:rgba(201,168,76,0.35);
-  color:var(--gold);
-}
+.cat-btn { white-space:nowrap; padding:6px 13px; border-radius:20px; background:var(--bg2); border:1px solid rgba(255,255,255,0.07); color:var(--text2); font-size:12px; font-family:'Tajawal',sans-serif; cursor:pointer; transition:all 0.15s; flex-shrink:0; }
+.cat-btn.active { background:rgba(201,168,76,0.12); border-color:rgba(201,168,76,0.35); color:var(--gold); }
 
-.sec-row {
-  display:flex; align-items:center;
-  justify-content:space-between; margin-bottom:10px;
-}
+.sec-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
 .sec-title { font-size:10px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; }
 .sec-count { font-size:12px; color:var(--text3); }
 
 .lesson-list { display:flex; flex-direction:column; gap:7px; }
-.lesson-item {
-  background:var(--bg2);
-  border:1px solid rgba(255,255,255,0.05);
-  border-radius:var(--r);
-  padding:13px 15px;
-  display:flex; align-items:center; gap:12px;
-  cursor:pointer; transition:all 0.15s;
-}
+.lesson-item { background:var(--bg2); border:1px solid rgba(255,255,255,0.05); border-radius:var(--r); padding:13px 15px; display:flex; align-items:center; gap:12px; cursor:pointer; transition:all 0.15s; }
 .lesson-item:active { background:var(--bg3); }
 .lesson-item.playing { border-color:rgba(201,168,76,0.35); background:linear-gradient(135deg,#201a0e,#1a1710); }
 .lesson-item.done { opacity:0.55; }
-.l-num {
-  width:34px; height:34px; border-radius:50%;
-  background:var(--bg3); display:flex;
-  align-items:center; justify-content:center;
-  font-size:12px; color:var(--text3); flex-shrink:0;
-}
+.l-num { width:34px; height:34px; border-radius:50%; background:var(--bg3); display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--text3); flex-shrink:0; }
 .lesson-item.playing .l-num { background:var(--gold); color:#1a1410; font-size:15px; }
 .lesson-item.done .l-num { background:rgba(74,124,89,0.2); color:var(--green); }
 .l-info { flex:1; min-width:0; }
 .l-name { font-size:13px; font-weight:500; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .l-meta { font-size:11px; color:var(--text3); margin-top:2px; }
 .lesson-item.playing .l-name { color:var(--gold2); }
-.l-tag {
-  font-size:10px; padding:2px 8px; border-radius:20px;
-  background:rgba(201,168,76,0.08); color:var(--gold-dim); white-space:nowrap; flex-shrink:0;
-}
+.l-tag { font-size:10px; padding:2px 8px; border-radius:20px; background:rgba(201,168,76,0.08); color:var(--gold-dim); white-space:nowrap; flex-shrink:0; }
 .l-tag.done-tag { background:rgba(74,124,89,0.12); color:var(--green); }
+.l-bm-dot { width:7px; height:7px; border-radius:50%; background:var(--gold); flex-shrink:0; box-shadow:0 0 6px rgba(201,168,76,0.5); }
 
 .empty-state { text-align:center; padding:48px 20px; color:var(--text3); }
 .empty-icon { font-size:44px; margin-bottom:14px; opacity:0.35; }
 .empty-text { font-size:14px; line-height:1.7; }
 
 /* ── PLAYER ── */
-#screen-player { flex-direction:column; }
 .player-scroll { flex:1; overflow-y:auto; padding:20px 18px; }
-
-.p-header { text-align:center; margin-bottom:28px; }
+.p-header { text-align:center; margin-bottom:24px; }
 .p-cat { font-size:10px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-bottom:8px; }
-.p-title { font-family:'Amiri',serif; font-size:22px; color:var(--text); line-height:1.45; }
+.p-title { font-family:'Amiri',serif; font-size:21px; color:var(--text); line-height:1.45; }
 
-.artwork {
-  width:180px; height:180px; margin:0 auto 28px;
-  border-radius:50%;
-  background:radial-gradient(circle,#2a2010,#1a1410);
-  border:2px solid rgba(201,168,76,0.25);
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 8px 40px rgba(0,0,0,0.5),0 0 50px rgba(201,168,76,0.06);
-  position:relative;
-}
+.artwork { width:160px; height:160px; margin:0 auto 24px; border-radius:50%; background:radial-gradient(circle,#2a2010,#1a1410); border:2px solid rgba(201,168,76,0.25); display:flex; align-items:center; justify-content:center; box-shadow:0 8px 40px rgba(0,0,0,0.5),0 0 50px rgba(201,168,76,0.06); position:relative; }
 .artwork.spinning { animation:spin 8s linear infinite; }
 @keyframes spin { to { transform:rotate(360deg); } }
-.artwork-symbol { font-family:'Amiri',serif; font-size:58px; color:var(--gold); opacity:0.55; }
-.artwork-dot {
-  position:absolute; width:18px; height:18px;
-  background:var(--bg); border:2px solid rgba(201,168,76,0.35);
-  border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%);
-}
+.artwork-symbol { font-family:'Amiri',serif; font-size:52px; color:var(--gold); opacity:0.55; }
+.artwork-dot { position:absolute; width:16px; height:16px; background:var(--bg); border:2px solid rgba(201,168,76,0.35); border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%); }
 
-.prog-wrap { margin-bottom:6px; cursor:pointer; padding:8px 0; }
-.prog-track { height:4px; background:var(--bg3); border-radius:2px; position:relative; overflow:hidden; }
-.prog-track-fill { height:100%; background:linear-gradient(90deg,var(--gold),var(--gold2)); border-radius:2px; transition:width 0.5s linear; pointer-events:none; }
+.prog-wrap { margin-bottom:6px; cursor:pointer; padding:8px 0; position:relative; }
+.prog-track { height:4px; background:var(--bg3); border-radius:2px; position:relative; overflow:visible; }
+.prog-track-fill { height:100%; background:linear-gradient(90deg,var(--gold),var(--gold2)); border-radius:2px; pointer-events:none; }
+/* bookmark markers on progress bar */
+.bm-marker { position:absolute; top:-4px; width:3px; height:12px; border-radius:2px; transform:translateX(-50%); cursor:pointer; z-index:10; transition:all 0.15s; }
+.bm-marker:hover { transform:translateX(-50%) scaleY(1.3); }
 .times { display:flex; justify-content:space-between; font-size:11px; color:var(--text3); margin-top:5px; }
 
-.controls {
-  display:flex; align-items:center;
-  justify-content:center; gap:20px; margin:20px 0 18px;
-}
-.ctrl {
-  background:none; border:none; color:var(--text2);
-  font-size:26px; cursor:pointer; padding:8px;
-  transition:all 0.15s; border-radius:50%;
-}
+.controls { display:flex; align-items:center; justify-content:center; gap:20px; margin:20px 0 16px; }
+.ctrl { background:none; border:none; color:var(--text2); font-size:26px; cursor:pointer; padding:8px; transition:all 0.15s; border-radius:50%; }
 .ctrl:active { color:var(--gold); transform:scale(0.9); }
-.ctrl-play {
-  width:62px; height:62px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  border:none; border-radius:50%; color:#1a1410;
-  font-size:24px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 4px 18px rgba(201,168,76,0.3);
-  transition:all 0.15s;
-}
+.ctrl-play { width:62px; height:62px; background:linear-gradient(135deg,var(--gold),var(--gold2)); border:none; border-radius:50%; color:#1a1410; font-size:24px; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(201,168,76,0.3); transition:all 0.15s; }
 .ctrl-play:active { transform:scale(0.94); }
 
-.extras {
-  display:flex; align-items:center;
-  justify-content:space-between; padding:0 4px; margin-bottom:20px;
-}
-.speed-btn {
-  background:var(--bg3); border:1px solid rgba(201,168,76,0.2);
-  color:var(--gold); padding:6px 13px; border-radius:20px;
-  font-size:13px; font-weight:700; cursor:pointer;
-  font-family:'Tajawal',sans-serif;
-}
+.extras { display:flex; align-items:center; justify-content:space-between; padding:0 4px; margin-bottom:16px; }
+.speed-btn { background:var(--bg3); border:1px solid rgba(201,168,76,0.2); color:var(--gold); padding:6px 13px; border-radius:20px; font-size:13px; font-weight:700; cursor:pointer; font-family:'Tajawal',sans-serif; }
 .vol-wrap { display:flex; align-items:center; gap:7px; color:var(--text3); font-size:15px; }
-.vol-slider {
-  -webkit-appearance:none; width:75px; height:4px;
-  background:var(--bg3); border-radius:2px; outline:none;
-}
-.vol-slider::-webkit-slider-thumb {
-  -webkit-appearance:none; width:13px; height:13px;
-  border-radius:50%; background:var(--gold); cursor:pointer;
-}
+.vol-slider { -webkit-appearance:none; width:75px; height:4px; background:var(--bg3); border-radius:2px; outline:none; }
+.vol-slider::-webkit-slider-thumb { -webkit-appearance:none; width:13px; height:13px; border-radius:50%; background:var(--gold); cursor:pointer; }
 
-.done-btn {
-  width:100%; padding:13px;
-  background:rgba(74,124,89,0.12);
-  border:1px solid rgba(74,124,89,0.28);
-  color:var(--green); border-radius:var(--r);
-  font-family:'Tajawal',sans-serif; font-size:14px;
-  font-weight:500; cursor:pointer; transition:all 0.2s; margin-bottom:10px;
-}
-.done-btn:active { background:rgba(74,124,89,0.22); }
+/* ── BOOKMARKS PANEL ── */
+.bm-panel { background:var(--bg2); border:1px solid rgba(201,168,76,0.15); border-radius:var(--r); padding:14px 16px; margin-bottom:12px; }
+.bm-panel-title { font-size:10px; color:var(--gold); letter-spacing:3px; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; justify-content:space-between; }
+.bm-add-btn { background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.25); color:var(--gold); padding:5px 12px; border-radius:20px; font-size:12px; font-family:'Tajawal',sans-serif; cursor:pointer; }
+.bm-add-btn:active { background:rgba(201,168,76,0.2); }
+
+.bm-list { display:flex; flex-direction:column; gap:6px; }
+.bm-item { display:flex; align-items:center; gap:10px; background:var(--bg3); border-radius:8px; padding:9px 12px; cursor:pointer; transition:all 0.15s; border:1px solid transparent; }
+.bm-item:active { border-color:rgba(201,168,76,0.2); }
+.bm-color { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.bm-info { flex:1; min-width:0; }
+.bm-name { font-size:13px; color:var(--text); font-weight:500; }
+.bm-time { font-size:11px; color:var(--text3); margin-top:1px; }
+.bm-actions { display:flex; gap:6px; }
+.bm-jump { background:rgba(201,168,76,0.1); border:none; color:var(--gold); width:28px; height:28px; border-radius:50%; font-size:13px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.bm-del { background:rgba(139,58,58,0.1); border:none; color:#e08080; width:28px; height:28px; border-radius:50%; font-size:13px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.bm-empty { font-size:12px; color:var(--text3); text-align:center; padding:8px 0; }
+
+.done-btn { width:100%; padding:13px; background:rgba(74,124,89,0.12); border:1px solid rgba(74,124,89,0.28); color:var(--green); border-radius:var(--r); font-family:'Tajawal',sans-serif; font-size:14px; font-weight:500; cursor:pointer; transition:all 0.2s; margin-bottom:10px; }
 .done-btn.undone { background:rgba(139,58,58,0.08); border-color:rgba(139,58,58,0.25); color:#e08080; }
 
-/* ── ADD ── */
-#screen-add { flex-direction:column; }
+/* ── BOOKMARK MODAL ── */
+.modal-bg { position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:500; display:none; align-items:flex-end; justify-content:center; }
+.modal-bg.show { display:flex; }
+.modal { background:var(--bg2); border-radius:20px 20px 0 0; padding:24px 20px; width:100%; max-width:480px; border-top:1px solid rgba(201,168,76,0.2); animation:slideUp 0.25s ease; }
+@keyframes slideUp { from { transform:translateY(40px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+.modal-title { font-family:'Amiri',serif; font-size:18px; color:var(--gold); margin-bottom:4px; }
+.modal-sub { font-size:12px; color:var(--text3); margin-bottom:20px; }
+.modal-label { font-size:10px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; margin-bottom:7px; display:block; }
+.modal-input { width:100%; background:var(--bg3); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:12px 14px; color:var(--text); font-size:14px; font-family:'Tajawal',sans-serif; outline:none; margin-bottom:16px; }
+.modal-input:focus { border-color:rgba(201,168,76,0.3); }
+
+/* Preset bookmark names */
+.preset-row { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+.preset-btn { padding:7px 13px; border-radius:20px; border:1px solid rgba(255,255,255,0.1); background:var(--bg3); color:var(--text2); font-size:12px; font-family:'Tajawal',sans-serif; cursor:pointer; transition:all 0.15s; }
+.preset-btn:active { background:var(--bg4); color:var(--text); }
+.preset-btn.selected { border-color:var(--gold); color:var(--gold); background:rgba(201,168,76,0.1); }
+
+/* Color picker */
+.color-row { display:flex; gap:10px; margin-bottom:20px; }
+.color-dot { width:28px; height:28px; border-radius:50%; cursor:pointer; border:2px solid transparent; transition:all 0.15s; flex-shrink:0; }
+.color-dot.selected { border-color:var(--text); transform:scale(1.15); }
+
+.modal-save { width:100%; padding:14px; background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#1a1410; border:none; border-radius:10px; font-family:'Tajawal',sans-serif; font-size:15px; font-weight:700; cursor:pointer; margin-bottom:10px; }
+.modal-save:active { transform:scale(0.98); }
+.modal-cancel { width:100%; padding:12px; background:none; border:1px solid rgba(255,255,255,0.1); color:var(--text2); border-radius:10px; font-family:'Tajawal',sans-serif; font-size:14px; cursor:pointer; }
+
+/* ── ADD SCREEN ── */
 .add-scroll { flex:1; padding:22px 18px; overflow-y:auto; }
 .field { margin-bottom:18px; }
 .field-lbl { font-size:10px; color:var(--gold); letter-spacing:2px; text-transform:uppercase; margin-bottom:7px; display:block; }
-.field-inp {
-  width:100%; background:var(--bg2);
-  border:1px solid rgba(201,168,76,0.15);
-  border-radius:var(--r); padding:13px 15px;
-  color:var(--text); font-size:14px;
-  font-family:'Tajawal',sans-serif; outline:none; transition:border-color 0.2s;
-}
+.field-inp { width:100%; background:var(--bg2); border:1px solid rgba(201,168,76,0.15); border-radius:var(--r); padding:13px 15px; color:var(--text); font-size:14px; font-family:'Tajawal',sans-serif; outline:none; transition:border-color 0.2s; }
 .field-inp:focus { border-color:rgba(201,168,76,0.4); }
 .field-inp::placeholder { color:var(--text3); }
-.save-btn {
-  width:100%; padding:15px;
-  background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#1a1410; border:none; border-radius:var(--r);
-  font-family:'Tajawal',sans-serif; font-size:15px;
-  font-weight:700; cursor:pointer; transition:all 0.2s; margin-top:4px;
-}
+.save-btn { width:100%; padding:15px; background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#1a1410; border:none; border-radius:var(--r); font-family:'Tajawal',sans-serif; font-size:15px; font-weight:700; cursor:pointer; }
 .save-btn:active { transform:scale(0.98); }
-.divider { border-top:1px solid rgba(255,255,255,0.06); margin:28px 0 20px; }
-.util-btn {
-  width:100%; padding:11px; background:var(--bg2);
-  border:1px solid rgba(255,255,255,0.08); color:var(--text2);
-  border-radius:var(--r); font-family:'Tajawal',sans-serif;
-  font-size:13px; cursor:pointer; margin-bottom:7px;
-}
-.logout-btn {
-  width:100%; padding:11px; background:rgba(139,58,58,0.08);
-  border:1px solid rgba(139,58,58,0.2); color:#e08080;
-  border-radius:var(--r); font-family:'Tajawal',sans-serif;
-  font-size:13px; cursor:pointer; margin-top:4px;
-}
-
-/* ── LOADING OVERLAY ── */
-.overlay {
-  position:fixed; inset:0;
-  background:rgba(15,13,10,0.85);
-  display:none; align-items:center; justify-content:center;
-  flex-direction:column; gap:16px; z-index:999;
-}
-.overlay.show { display:flex; }
-.spinner {
-  width:40px; height:40px;
-  border:3px solid rgba(201,168,76,0.2);
-  border-top-color:var(--gold);
-  border-radius:50%;
-  animation:spin 0.8s linear infinite;
-}
-.overlay-text { font-size:14px; color:var(--text2); }
+.divider { border-top:1px solid rgba(255,255,255,0.06); margin:24px 0 18px; }
+.util-btn { width:100%; padding:11px; background:var(--bg2); border:1px solid rgba(255,255,255,0.08); color:var(--text2); border-radius:var(--r); font-family:'Tajawal',sans-serif; font-size:13px; cursor:pointer; margin-bottom:7px; }
+.logout-btn { width:100%; padding:11px; background:rgba(139,58,58,0.08); border:1px solid rgba(139,58,58,0.2); color:#e08080; border-radius:var(--r); font-family:'Tajawal',sans-serif; font-size:13px; cursor:pointer; margin-top:4px; }
 
 /* ── BOTTOM NAV ── */
-.bnav {
-  display:flex; background:var(--bg2);
-  border-top:1px solid rgba(201,168,76,0.08);
-  padding:6px 0;
-  padding-bottom:max(6px,env(safe-area-inset-bottom));
-  flex-shrink:0;
-}
-.bnav-item {
-  flex:1; display:flex; flex-direction:column;
-  align-items:center; gap:3px; padding:5px 0;
-  cursor:pointer; color:var(--text3); font-size:10px;
-  letter-spacing:0.5px; border:none; background:none;
-  font-family:'Tajawal',sans-serif; transition:all 0.15s;
-}
+.bnav { display:flex; background:var(--bg2); border-top:1px solid rgba(201,168,76,0.08); padding:6px 0; padding-bottom:max(6px,env(safe-area-inset-bottom)); flex-shrink:0; }
+.bnav-item { flex:1; display:flex; flex-direction:column; align-items:center; gap:3px; padding:5px 0; cursor:pointer; color:var(--text3); font-size:10px; letter-spacing:0.5px; border:none; background:none; font-family:'Tajawal',sans-serif; transition:all 0.15s; }
 .bnav-item .icon { font-size:21px; transition:all 0.15s; }
 .bnav-item.active { color:var(--gold); }
 .bnav-item.active .icon { transform:translateY(-2px); }
 
+/* ── OVERLAY ── */
+.overlay { position:fixed; inset:0; background:rgba(15,13,10,0.85); display:none; align-items:center; justify-content:center; flex-direction:column; gap:16px; z-index:999; }
+.overlay.show { display:flex; }
+.spinner { width:40px; height:40px; border:3px solid rgba(201,168,76,0.2); border-top-color:var(--gold); border-radius:50%; animation:spin 0.8s linear infinite; }
+.overlay-text { font-size:14px; color:var(--text2); }
+
 /* ── TOAST ── */
-.toast {
-  position:fixed; bottom:85px; left:50%;
-  transform:translateX(-50%) translateY(16px);
-  background:var(--bg3); border:1px solid rgba(201,168,76,0.25);
-  color:var(--text); padding:11px 22px; border-radius:40px;
-  font-size:13px; opacity:0; transition:all 0.3s;
-  pointer-events:none; white-space:nowrap; z-index:998;
-}
+.toast { position:fixed; bottom:85px; left:50%; transform:translateX(-50%) translateY(16px); background:var(--bg3); border:1px solid rgba(201,168,76,0.25); color:var(--text); padding:11px 22px; border-radius:40px; font-size:13px; opacity:0; transition:all 0.3s; pointer-events:none; white-space:nowrap; z-index:998; }
 .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
 ::-webkit-scrollbar { width:3px; }
@@ -432,19 +232,17 @@ body {
   <div class="login-sub">Ders Takip</div>
   <div class="login-ornament"></div>
   <div class="login-card">
-    <div class="login-field">
+    <div>
       <label class="login-label">Kullanıcı Adı</label>
       <input class="login-input" id="l-user" type="text" autocomplete="username" placeholder="maksure.com kullanıcı adın">
     </div>
-    <div class="login-field">
+    <div>
       <label class="login-label">Şifre</label>
       <input class="login-input" id="l-pass" type="password" autocomplete="current-password" placeholder="••••••••">
     </div>
     <div class="login-error" id="login-error"></div>
-    <button class="login-btn" id="login-btn" onclick="doLogin()">
-      <span id="login-btn-text">Giriş Yap ✦</span>
-    </button>
-    <div class="login-note">Bilgilerin yalnızca bu cihazda saklanır.<br>Maksure.com üyelik bilgilerini gir.</div>
+    <button class="login-btn" id="login-btn" onclick="doLogin()">Giriş Yap ✦</button>
+    <div class="login-note">Bilgilerin yalnızca bu cihazda saklanır.</div>
   </div>
 </div>
 
@@ -454,7 +252,7 @@ body {
     <span class="topbar-title">مقصوره</span>
     <button class="topbar-btn" onclick="refreshLessons()" id="refresh-btn">↻</button>
   </div>
-  <div class="home-scroll">
+  <div class="scroll-area">
     <div class="resume-card" id="resume-card" onclick="resumeLesson()">
       <div class="resume-label">✦ Kaldığın Yer</div>
       <div class="resume-title" id="resume-title">—</div>
@@ -486,26 +284,32 @@ body {
   <div class="topbar">
     <button class="topbar-btn" onclick="goHome()">←</button>
     <span class="topbar-title" id="p-cat-top">Ders</span>
-    <button class="topbar-btn" id="p-site-btn" onclick="openSite()" title="Sitede aç">↗</button>
+    <button class="topbar-btn" onclick="openSite()">↗</button>
   </div>
   <div class="player-scroll">
     <div class="p-header">
       <div class="p-cat" id="p-cat">—</div>
       <div class="p-title" id="p-title">—</div>
     </div>
+
     <div class="artwork" id="artwork">
       <div class="artwork-symbol">♪</div>
       <div class="artwork-dot"></div>
     </div>
-    <div class="prog-wrap" onclick="seekAudio(event)">
+
+    <!-- Progress bar with bookmark markers -->
+    <div class="prog-wrap" id="prog-wrap" onclick="seekAudio(event)">
       <div class="prog-track" id="prog-track">
         <div class="prog-track-fill" id="prog-fill" style="width:0%"></div>
+        <!-- bookmark markers injected here -->
       </div>
       <div class="times">
         <span id="t-cur">0:00</span>
         <span id="t-tot">0:00</span>
       </div>
     </div>
+
+    <!-- Controls -->
     <div class="controls">
       <button class="ctrl" onclick="skipTime(-15)">⏪</button>
       <button class="ctrl" onclick="prevLesson()">⏮</button>
@@ -513,6 +317,7 @@ body {
       <button class="ctrl" onclick="nextLesson()">⏭</button>
       <button class="ctrl" onclick="skipTime(15)">⏩</button>
     </div>
+
     <div class="extras">
       <button class="speed-btn" onclick="cycleSpeed()" id="speed-btn">1×</button>
       <div class="vol-wrap">
@@ -521,6 +326,18 @@ body {
         <span>🔊</span>
       </div>
     </div>
+
+    <!-- Bookmarks panel -->
+    <div class="bm-panel">
+      <div class="bm-panel-title">
+        <span>🔖 Yer İşaretleri</span>
+        <button class="bm-add-btn" onclick="openBmModal()">+ Ekle</button>
+      </div>
+      <div class="bm-list" id="bm-list">
+        <div class="bm-empty">Henüz yer işareti yok</div>
+      </div>
+    </div>
+
     <button class="done-btn" id="done-btn" onclick="toggleDone()">✓ Tamamlandı Olarak İşaretle</button>
   </div>
 </div>
@@ -539,7 +356,7 @@ body {
     </div>
     <div class="field">
       <label class="field-lbl">Kategori</label>
-      <input class="field-inp" id="f-cat" type="text" placeholder="örn: İrşâd, Tefsir, Fusûsü'l Hikem...">
+      <input class="field-inp" id="f-cat" type="text" placeholder="örn: İRŞÂD, Mesnevî-i Şerîf...">
     </div>
     <div class="field">
       <label class="field-lbl">Mp3 Linki</label>
@@ -551,7 +368,7 @@ body {
     </div>
     <button class="save-btn" onclick="saveLesson()">Kaydet ✦</button>
     <div class="divider"></div>
-    <div class="sec-title" style="margin-bottom:12px;">Veri Yönetimi</div>
+    <div class="sec-title" style="margin-bottom:12px">Veri Yönetimi</div>
     <button class="util-btn" onclick="exportData()">📤 Yedek Al (JSON)</button>
     <button class="util-btn" onclick="triggerImport()">📥 Yedek Yükle</button>
     <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(this)">
@@ -571,20 +388,49 @@ body {
     <span></span>
   </div>
   <div class="add-scroll">
-    <div class="sec-title" style="margin-bottom:16px;">Hesap</div>
-    <div style="background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:var(--r);padding:14px 16px;margin-bottom:16px;">
+    <div class="sec-title" style="margin-bottom:14px">Hesap</div>
+    <div style="background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:var(--r);padding:14px 16px;margin-bottom:14px;">
       <div style="font-size:12px;color:var(--text3);margin-bottom:4px;">Giriş yapılan hesap</div>
-      <div style="font-size:15px;color:var(--text);" id="settings-user">—</div>
+      <div style="font-size:15px;color:var(--text)" id="settings-user">—</div>
     </div>
     <button class="logout-btn" onclick="doLogout()">🚪 Çıkış Yap</button>
     <div class="divider"></div>
-    <div class="sec-title" style="margin-bottom:12px;">İstatistikler</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;" id="stats-grid"></div>
+    <div class="sec-title" style="margin-bottom:12px">İstatistikler</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" id="stats-grid"></div>
   </div>
   <div class="bnav">
     <button class="bnav-item" onclick="navTo('home')"><span class="icon">🏠</span>Dersler</button>
     <button class="bnav-item" onclick="navTo('add')"><span class="icon">➕</span>Ekle</button>
     <button class="bnav-item active" onclick="navTo('settings')"><span class="icon">⚙️</span>Ayarlar</button>
+  </div>
+</div>
+
+<!-- BOOKMARK MODAL -->
+<div class="modal-bg" id="bm-modal" onclick="closeBmModal(event)">
+  <div class="modal">
+    <div class="modal-title">🔖 Yer İşareti Ekle</div>
+    <div class="modal-sub" id="bm-modal-time">Şu anki konum: —</div>
+
+    <label class="modal-label">İsim seç veya yaz</label>
+    <div class="preset-row" id="preset-row">
+      <button class="preset-btn" onclick="selectPreset(this,'Burada kaldım')">Burada kaldım</button>
+      <button class="preset-btn" onclick="selectPreset(this,'Buradan devam et')">Buradan devam et</button>
+      <button class="preset-btn" onclick="selectPreset(this,'Önemli bölüm')">Önemli bölüm</button>
+      <button class="preset-btn" onclick="selectPreset(this,'Tekrar dinle')">Tekrar dinle</button>
+    </div>
+    <input class="modal-input" id="bm-name-input" type="text" placeholder="veya kendin yaz...">
+
+    <label class="modal-label">Renk</label>
+    <div class="color-row" id="color-row">
+      <div class="color-dot selected" style="background:#c9a84c" data-color="#c9a84c" onclick="selectColor(this)"></div>
+      <div class="color-dot" style="background:#4a7c59" data-color="#4a7c59" onclick="selectColor(this)"></div>
+      <div class="color-dot" style="background:#3a6b8b" data-color="#3a6b8b" onclick="selectColor(this)"></div>
+      <div class="color-dot" style="background:#8b3a8b" data-color="#8b3a8b" onclick="selectColor(this)"></div>
+      <div class="color-dot" style="background:#8b3a3a" data-color="#8b3a3a" onclick="selectColor(this)"></div>
+    </div>
+
+    <button class="modal-save" onclick="saveBm()">Kaydet</button>
+    <button class="modal-cancel" onclick="closeBmModal()">İptal</button>
   </div>
 </div>
 
@@ -603,6 +449,7 @@ body {
 <script>
 // ── STATE ──
 let lessons = JSON.parse(localStorage.getItem('maks_lessons') || '[]');
+// progress: { lessonId: { time, duration, done, bookmarks: [{id,name,time,color}] } }
 let progress = JSON.parse(localStorage.getItem('maks_progress') || '{}');
 let creds = JSON.parse(localStorage.getItem('maks_creds') || 'null');
 let currentLesson = null;
@@ -612,6 +459,7 @@ let speedIdx = 1;
 let searchQ = '';
 let activeCat = 'all';
 let saveTimer = null;
+let selectedBmColor = '#c9a84c';
 const audio = document.getElementById('audio');
 const BASE = 'https://maksure.com';
 
@@ -619,28 +467,28 @@ function save() {
   localStorage.setItem('maks_lessons', JSON.stringify(lessons));
   localStorage.setItem('maks_progress', JSON.stringify(progress));
 }
+function getP(id) {
+  if (!progress[id]) progress[id] = { time:0, duration:0, done:false, bookmarks:[] };
+  if (!progress[id].bookmarks) progress[id].bookmarks = [];
+  return progress[id];
+}
 
 // ── SCREENS ──
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + id).classList.add('active');
 }
-
 function goHome() { navTo('home'); }
-
 function navTo(id) {
-  if (id === 'home') { showScreen('home'); renderHome(); setNavActive(0); return; }
-  if (id === 'add') { showScreen('add'); setNavActive(1); return; }
-  if (id === 'settings') {
+  if (id==='home') { showScreen('home'); renderHome(); setNav(0); return; }
+  if (id==='add') { showScreen('add'); setNav(1); return; }
+  if (id==='settings') {
     showScreen('settings');
-    document.getElementById('settings-user').textContent = creds ? creds.username : '—';
-    renderStats();
-    setNavActive(2);
-    return;
+    document.getElementById('settings-user').textContent = creds?.username || '—';
+    renderStats(); setNav(2); return;
   }
 }
-
-function setNavActive(i) {
+function setNav(i) {
   document.querySelectorAll('.bnav-item').forEach((b,j) => b.classList.toggle('active', i===j));
 }
 
@@ -648,234 +496,121 @@ function setNavActive(i) {
 async function doLogin() {
   const username = document.getElementById('l-user').value.trim();
   const password = document.getElementById('l-pass').value;
-  if (!username || !password) { showLoginError('Kullanıcı adı ve şifre gerekli'); return; }
-
+  if (!username || !password) { showLoginErr('Kullanıcı adı ve şifre gerekli'); return; }
   const btn = document.getElementById('login-btn');
-  document.getElementById('login-btn-text').textContent = 'Giriş yapılıyor...';
-  btn.disabled = true;
-  hideLoginError();
-
-  try {
-    // WordPress JWT or application password — try cookie-based login first
-    const formData = new FormData();
-    formData.append('log', username);
-    formData.append('pwd', password);
-    formData.append('wp-submit', 'Log In');
-    formData.append('redirect_to', '/wp-admin/');
-    formData.append('testcookie', '1');
-
-    const res = await fetch(`${BASE}/wp-login.php`, {
-      method: 'POST',
-      body: formData,
-      credentials: 'include',
-      redirect: 'follow',
-      mode: 'cors'
-    });
-
-    // Try fetching a protected page to verify login
-    const testRes = await fetch(`${BASE}/wp-json/wp/v2/users/me`, {
-      credentials: 'include',
-      headers: { 'Authorization': 'Basic ' + btoa(username + ':' + password) }
-    });
-
-    if (testRes.ok) {
-      const user = await testRes.json();
-      creds = { username, password, displayName: user.name };
-      localStorage.setItem('maks_creds', JSON.stringify(creds));
-      showScreen('home');
-      await fetchLessons();
-    } else {
-      // Try basic auth approach
-      creds = { username, password };
-      localStorage.setItem('maks_creds', JSON.stringify(creds));
-      showScreen('home');
-      renderHome();
-      toast('Giriş yapıldı ✓ (Ders listesi manuel eklenebilir)');
-    }
-  } catch(e) {
-    // CORS engellediyse — manual mod
-    creds = { username, password };
-    localStorage.setItem('maks_creds', JSON.stringify(creds));
-    showScreen('home');
-    renderHome();
-    toast('⚠️ Otomatik bağlantı kısıtlı — dersler manuel eklenebilir');
-  }
-
-  btn.disabled = false;
-  document.getElementById('login-btn-text').textContent = 'Giriş Yap ✦';
-}
-
-function showLoginError(msg) {
-  const el = document.getElementById('login-error');
-  el.textContent = msg; el.style.display = 'block';
-}
-function hideLoginError() {
+  btn.textContent = 'Giriş yapılıyor...'; btn.disabled = true;
   document.getElementById('login-error').style.display = 'none';
+  try {
+    const res = await fetch(`${BASE}/wp-json/wp/v2/users/me`, {
+      credentials:'include',
+      headers:{'Authorization':'Basic '+btoa(username+':'+password)}
+    });
+    creds = res.ok ? { username, password, displayName:(await res.json()).name } : { username, password };
+  } catch { creds = { username, password }; }
+  localStorage.setItem('maks_creds', JSON.stringify(creds));
+  showScreen('home'); renderHome();
+  setTimeout(fetchLessons, 300);
+  btn.textContent = 'Giriş Yap ✦'; btn.disabled = false;
 }
-
+function showLoginErr(m) { const e=document.getElementById('login-error'); e.textContent=m; e.style.display='block'; }
 function doLogout() {
   if (!confirm('Çıkış yapmak istediğinden emin misin?')) return;
-  localStorage.removeItem('maks_creds');
-  creds = null;
-  showScreen('login');
+  localStorage.removeItem('maks_creds'); creds=null; showScreen('login');
 }
 
-// ── FETCH LESSONS FROM SITE ──
+// ── FETCH ──
 async function fetchLessons() {
   if (!creds) return;
   showOverlay('Dersler yükleniyor...');
   try {
-    const headers = {
-      'Authorization': 'Basic ' + btoa(creds.username + ':' + creds.password)
-    };
-    // Get all pages (wp/v2/pages) — dersler sayfa olarak tutuluyorsa
+    const headers = {'Authorization':'Basic '+btoa(creds.username+':'+creds.password)};
     const res = await fetch(`${BASE}/wp-json/wp/v2/pages?per_page=100&parent=2189`, { headers, credentials:'include' });
     if (res.ok) {
       const pages = await res.json();
       if (pages.length > 0) {
-        // Merge with existing — don't duplicate
-        const existing = new Set(lessons.map(l => l.pageId));
-        let added = 0;
+        const existing = new Set(lessons.map(l=>l.pageId));
+        let added=0;
         for (const p of pages) {
           if (!existing.has(String(p.id))) {
-            // Try to extract mp3 from content
-            const mp3 = extractMp3(p.content.rendered);
-            lessons.push({
-              id: 'p' + p.id,
-              pageId: String(p.id),
-              name: decodeHTML(p.title.rendered),
-              category: p.parent ? '' : '',
-              url: mp3 || p.link,
-              pageUrl: p.link,
-              addedAt: p.date
-            });
+            const mp3 = p.content.rendered.match(/https?:\/\/[^"'\s]+\.mp3/i)?.[0] || null;
+            lessons.push({ id:'p'+p.id, pageId:String(p.id), name:decodeHTML(p.title.rendered), category:'', url:mp3||p.link, pageUrl:p.link, addedAt:p.date });
             added++;
           }
         }
-        save();
-        hideOverlay();
-        renderHome();
-        toast(added > 0 ? `✓ ${added} ders yüklendi!` : 'Dersler güncel ✓');
+        save(); hideOverlay(); renderHome();
+        toast(added>0 ? `✓ ${added} ders yüklendi!` : 'Dersler güncel ✓');
         return;
       }
     }
-
-    // Try posts
-    const res2 = await fetch(`${BASE}/wp-json/wp/v2/posts?per_page=100&categories=0`, { headers, credentials:'include' });
-    if (res2.ok) {
-      const posts = await res2.json();
-      if (posts.length > 0) {
-        let added = 0;
-        const existing = new Set(lessons.map(l => l.pageId));
-        for (const p of posts) {
-          if (!existing.has('post-' + p.id)) {
-            const mp3 = extractMp3(p.content.rendered);
-            lessons.push({
-              id: 'post' + p.id,
-              pageId: 'post-' + p.id,
-              name: decodeHTML(p.title.rendered),
-              category: '',
-              url: mp3 || p.link,
-              pageUrl: p.link,
-              addedAt: p.date
-            });
-            added++;
-          }
-        }
-        save();
-        hideOverlay();
-        renderHome();
-        toast(added > 0 ? `✓ ${added} ders yüklendi!` : 'Dersler güncel ✓');
-        return;
-      }
-    }
-
-    hideOverlay();
-    renderHome();
-    toast('API yanıt verdi ama ders bulunamadı — manuel ekle');
-  } catch(e) {
-    hideOverlay();
-    renderHome();
-    toast('⚠️ Bağlantı hatası — dersler manuel eklenebilir');
-  }
+  } catch(_) {}
+  hideOverlay(); renderHome();
+  toast('⚠️ Bağlantı kısıtlı — dersler manuel eklenebilir');
 }
-
 async function refreshLessons() {
-  document.getElementById('refresh-btn').style.animation = 'spin 0.8s linear infinite';
+  document.getElementById('refresh-btn').style.animation='spin 0.8s linear infinite';
   await fetchLessons();
-  document.getElementById('refresh-btn').style.animation = '';
+  document.getElementById('refresh-btn').style.animation='';
 }
+function extractMp3(html) { return html.match(/https?:\/\/[^"'\s]+\.mp3/i)?.[0]||null; }
+function decodeHTML(h) { const t=document.createElement('textarea'); t.innerHTML=h; return t.value; }
 
-function extractMp3(html) {
-  const m = html.match(/https?:\/\/[^"'\s]+\.mp3/i);
-  return m ? m[0] : null;
-}
-function decodeHTML(html) {
-  const t = document.createElement('textarea');
-  t.innerHTML = html;
-  return t.value;
-}
-
-// ── HOME RENDER ──
+// ── HOME ──
 function renderHome() {
-  renderResumeCard();
-  renderCategories();
-  renderLessonList();
+  renderResumeCard(); renderCategories(); renderLessonList();
 }
-
 function renderResumeCard() {
   const card = document.getElementById('resume-card');
-  const entry = Object.entries(progress).find(([id,v]) => !v.done && v.time > 5);
-  if (!entry) { card.style.display = 'none'; return; }
-  const lesson = lessons.find(l => l.id === entry[0]);
-  if (!lesson) { card.style.display = 'none'; return; }
-  card.style.display = 'block';
+  const entry = Object.entries(progress).find(([id,v])=>!v.done && v.time>5);
+  if (!entry) { card.style.display='none'; return; }
+  const lesson = lessons.find(l=>l.id===entry[0]);
+  if (!lesson) { card.style.display='none'; return; }
+  card.style.display='block';
   document.getElementById('resume-title').textContent = lesson.name;
+  const bms = (entry[1].bookmarks||[]).length;
   document.getElementById('resume-meta').textContent =
-    (lesson.category || '') + (lesson.category ? ' • ' : '') + fmt(entry[1].time) + ' kaldın';
+    (lesson.category?lesson.category+' • ':'') + fmt(entry[1].time) + ' kaldın' +
+    (bms ? ` • ${bms} yer işareti` : '');
   const pct = entry[1].duration ? Math.round((entry[1].time/entry[1].duration)*100) : 0;
-  document.getElementById('resume-prog').style.width = pct + '%';
+  document.getElementById('resume-prog').style.width = pct+'%';
 }
-
 function renderCategories() {
   const cats = ['all', ...new Set(lessons.filter(l=>l.category).map(l=>l.category))];
   document.getElementById('cat-row').innerHTML = cats.map(c =>
-    `<button class="cat-btn ${activeCat===c?'active':''}" onclick="setCat('${c}')">${c==='all'?'✦ Tümü':c}</button>`
-  ).join('');
+    `<button class="cat-btn ${activeCat===c?'active':''}" onclick="setCat('${c.replace(/'/g,"\\'")}')">
+      ${c==='all'?'✦ Tümü':c}
+    </button>`).join('');
 }
-
-function setCat(c) { activeCat = c; renderHome(); }
-
-function filterLessons(q) { searchQ = q.toLowerCase(); renderLessonList(); }
-
+function setCat(c) { activeCat=c; renderHome(); }
+function filterLessons(q) { searchQ=q.toLowerCase(); renderLessonList(); }
 function getFiltered() {
   return lessons.filter(l => {
-    const mc = activeCat === 'all' || l.category === activeCat;
+    const mc = activeCat==='all' || l.category===activeCat;
     const ms = !searchQ || l.name.toLowerCase().includes(searchQ) || (l.category||'').toLowerCase().includes(searchQ);
-    return mc && ms;
+    return mc&&ms;
   });
 }
-
 function renderLessonList() {
-  const list = document.getElementById('lesson-list');
-  const filtered = getFiltered();
-  document.getElementById('lesson-count').textContent = filtered.length + ' ders';
+  const list=document.getElementById('lesson-list');
+  const filtered=getFiltered();
+  document.getElementById('lesson-count').textContent=filtered.length+' ders';
   if (!filtered.length) {
-    list.innerHTML = lessons.length
-      ? `<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-text">Sonuç bulunamadı</div></div>`
-      : `<div class="empty-state"><div class="empty-icon">📚</div><div class="empty-text">Henüz ders eklenmemiş.<br><strong>Ekle</strong> sekmesinden ekleyebilirsin.</div></div>`;
+    list.innerHTML=lessons.length
+      ?`<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-text">Sonuç bulunamadı</div></div>`
+      :`<div class="empty-state"><div class="empty-icon">📚</div><div class="empty-text">Henüz ders eklenmemiş.<br><strong>Ekle</strong> sekmesinden ekleyebilirsin.</div></div>`;
     return;
   }
   list.innerHTML = filtered.map((l,i) => {
-    const p = progress[l.id] || {};
-    const done = p.done, playing = currentLesson?.id === l.id;
-    const pct = p.duration && p.time ? Math.round((p.time/p.duration)*100) : 0;
+    const p = progress[l.id]||{};
+    const done=p.done, playing=currentLesson?.id===l.id;
+    const pct = p.duration&&p.time ? Math.round((p.time/p.duration)*100) : 0;
+    const bms = (p.bookmarks||[]).length;
     return `<div class="lesson-item ${done?'done':''} ${playing?'playing':''}" onclick="playLesson('${l.id}')">
       <div class="l-num">${done?'✓':playing?'♪':(i+1)}</div>
       <div class="l-info">
         <div class="l-name">${l.name}</div>
         <div class="l-meta">${l.category||''}${pct>0&&!done?' • %'+pct+' tamamlandı':''}${l.note?' • '+l.note:''}</div>
       </div>
+      ${bms>0?`<div class="l-bm-dot" title="${bms} yer işareti"></div>`:''}
       <span class="l-tag ${done?'done-tag':''}">${done?'Bitti ✓':pct>0?pct+'%':'Yeni'}</span>
     </div>`;
   }).join('');
@@ -883,229 +618,247 @@ function renderLessonList() {
 
 // ── PLAYER ──
 function playLesson(id) {
-  const lesson = lessons.find(l => l.id === id);
+  const lesson = lessons.find(l=>l.id===id);
   if (!lesson) return;
-  currentLesson = lesson;
-  currentIdx = lessons.indexOf(lesson);
+  currentLesson=lesson; currentIdx=lessons.indexOf(lesson);
   showScreen('player');
-
-  document.getElementById('p-title').textContent = lesson.name;
-  document.getElementById('p-cat').textContent = lesson.category || 'Ders';
-  document.getElementById('p-cat-top').textContent = lesson.category || 'Ders';
-  updateDoneBtn();
-
-  const p = progress[lesson.id] || {};
-
+  document.getElementById('p-title').textContent=lesson.name;
+  document.getElementById('p-cat').textContent=lesson.category||'Ders';
+  document.getElementById('p-cat-top').textContent=lesson.category||'Ders';
+  updateDoneBtn(); renderBookmarks();
+  const p=getP(lesson.id);
   if (lesson.url && lesson.url.match(/\.mp3(\?|$)/i)) {
-    audio.src = lesson.url;
-    audio.load();
-    audio.currentTime = p.time || 0;
-    audio.play().then(() => {
+    audio.src=lesson.url; audio.load(); audio.currentTime=p.time||0;
+    audio.play().then(()=>{
       document.getElementById('artwork').classList.add('spinning');
-      document.getElementById('play-btn').textContent = '⏸';
-    }).catch(() => toast('⚠️ Mp3 yüklenemedi — siteye git'));
+      document.getElementById('play-btn').textContent='⏸';
+    }).catch(()=>toast('⚠️ Mp3 yüklenemedi'));
   } else {
-    document.getElementById('play-btn').textContent = '▶';
+    document.getElementById('play-btn').textContent='▶';
     if (lesson.url) toast('Mp3 linki yok — ↗ ile siteyi aç');
   }
 }
-
 function resumeLesson() {
-  const entry = Object.entries(progress).find(([id,v]) => !v.done && v.time > 5);
-  if (!entry) return;
-  playLesson(entry[0]);
+  const entry = Object.entries(progress).find(([id,v])=>!v.done&&v.time>5);
+  if (entry) playLesson(entry[0]);
 }
-
 function togglePlay() {
-  if (!currentLesson) return;
-  if (!audio.src || audio.src === window.location.href) { toast('Mp3 linki yok'); return; }
+  if (!audio.src||audio.src===window.location.href) { toast('Mp3 linki yok'); return; }
   if (audio.paused) {
     audio.play();
     document.getElementById('artwork').classList.add('spinning');
-    document.getElementById('play-btn').textContent = '⏸';
+    document.getElementById('play-btn').textContent='⏸';
   } else {
     audio.pause();
     document.getElementById('artwork').classList.remove('spinning');
-    document.getElementById('play-btn').textContent = '▶';
+    document.getElementById('play-btn').textContent='▶';
   }
 }
-
-function skipTime(s) {
-  if (audio.src) audio.currentTime = Math.max(0, Math.min(audio.duration||0, audio.currentTime+s));
-}
-
-function nextLesson() {
-  if (currentIdx < lessons.length-1) playLesson(lessons[currentIdx+1].id);
-  else toast('Son ders! 🎉');
-}
-function prevLesson() {
-  if (currentIdx > 0) playLesson(lessons[currentIdx-1].id);
-}
-
-function cycleSpeed() {
-  speedIdx = (speedIdx+1) % speeds.length;
-  audio.playbackRate = speeds[speedIdx];
-  document.getElementById('speed-btn').textContent = speeds[speedIdx] + '×';
-}
-function setVol(v) { audio.volume = v; }
-
+function skipTime(s) { if(audio.src) audio.currentTime=Math.max(0,Math.min(audio.duration||0,audio.currentTime+s)); }
+function nextLesson() { if(currentIdx<lessons.length-1) playLesson(lessons[currentIdx+1].id); else toast('Son ders! 🎉'); }
+function prevLesson() { if(currentIdx>0) playLesson(lessons[currentIdx-1].id); }
+function cycleSpeed() { speedIdx=(speedIdx+1)%speeds.length; audio.playbackRate=speeds[speedIdx]; document.getElementById('speed-btn').textContent=speeds[speedIdx]+'×'; }
+function setVol(v) { audio.volume=v; }
 function seekAudio(e) {
   if (!audio.duration) return;
-  const tr = document.getElementById('prog-track');
-  const pct = (e.clientX - tr.getBoundingClientRect().left) / tr.offsetWidth;
-  audio.currentTime = pct * audio.duration;
+  const tr=document.getElementById('prog-track');
+  const pct=(e.clientX-tr.getBoundingClientRect().left)/tr.offsetWidth;
+  audio.currentTime=pct*audio.duration;
 }
-
 function updateDoneBtn() {
-  const btn = document.getElementById('done-btn');
-  const done = (progress[currentLesson?.id] || {}).done;
-  btn.textContent = done ? '↩ Tamamlandı İşaretini Kaldır' : '✓ Tamamlandı Olarak İşaretle';
-  btn.classList.toggle('undone', !!done);
+  const btn=document.getElementById('done-btn');
+  const done=(progress[currentLesson?.id]||{}).done;
+  btn.textContent=done?'↩ Tamamlandı İşaretini Kaldır':'✓ Tamamlandı Olarak İşaretle';
+  btn.classList.toggle('undone',!!done);
 }
-
 function toggleDone() {
   if (!currentLesson) return;
-  if (!progress[currentLesson.id]) progress[currentLesson.id] = {};
-  progress[currentLesson.id].done = !progress[currentLesson.id].done;
-  save(); updateDoneBtn();
-  toast(progress[currentLesson.id].done ? '✓ Tamamlandı!' : 'İşaret kaldırıldı');
+  const p=getP(currentLesson.id);
+  p.done=!p.done; save(); updateDoneBtn();
+  toast(p.done?'✓ Tamamlandı!':'İşaret kaldırıldı');
 }
-
 function openSite() {
-  const url = currentLesson?.pageUrl || currentLesson?.url || BASE;
-  window.open(url, '_blank');
+  const url=currentLesson?.pageUrl||currentLesson?.url||BASE;
+  window.open(url,'_blank');
 }
 
 // ── AUDIO EVENTS ──
-audio.addEventListener('timeupdate', () => {
-  if (!currentLesson || !audio.duration) return;
-  const pct = (audio.currentTime / audio.duration) * 100;
-  document.getElementById('prog-fill').style.width = pct + '%';
-  document.getElementById('t-cur').textContent = fmt(audio.currentTime);
-  document.getElementById('t-tot').textContent = fmt(audio.duration);
-  if (!saveTimer) saveTimer = setTimeout(() => {
+audio.addEventListener('timeupdate',()=>{
+  if (!currentLesson||!audio.duration) return;
+  const pct=(audio.currentTime/audio.duration)*100;
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('t-cur').textContent=fmt(audio.currentTime);
+  document.getElementById('t-tot').textContent=fmt(audio.duration);
+  renderBmMarkers();
+  if (!saveTimer) saveTimer=setTimeout(()=>{
     if (currentLesson) {
-      if (!progress[currentLesson.id]) progress[currentLesson.id] = {};
-      progress[currentLesson.id].time = Math.floor(audio.currentTime);
-      progress[currentLesson.id].duration = Math.floor(audio.duration);
+      const p=getP(currentLesson.id);
+      p.time=Math.floor(audio.currentTime);
+      p.duration=Math.floor(audio.duration);
       save();
     }
-    saveTimer = null;
-  }, 5000);
+    saveTimer=null;
+  },5000);
+});
+audio.addEventListener('ended',()=>{
+  document.getElementById('artwork').classList.remove('spinning');
+  document.getElementById('play-btn').textContent='▶';
+  if (currentLesson) { const p=getP(currentLesson.id); p.done=true; p.time=0; save(); updateDoneBtn(); toast('🎉 Ders tamamlandı!'); }
+});
+audio.addEventListener('pause',()=>{
+  document.getElementById('artwork').classList.remove('spinning');
+  document.getElementById('play-btn').textContent='▶';
+  if (currentLesson) { const p=getP(currentLesson.id); p.time=Math.floor(audio.currentTime); p.duration=Math.floor(audio.duration); save(); }
 });
 
-audio.addEventListener('ended', () => {
-  document.getElementById('artwork').classList.remove('spinning');
-  document.getElementById('play-btn').textContent = '▶';
-  if (currentLesson) {
-    if (!progress[currentLesson.id]) progress[currentLesson.id] = {};
-    progress[currentLesson.id].done = true;
-    progress[currentLesson.id].time = 0;
-    save(); updateDoneBtn();
-    toast('🎉 Ders tamamlandı!');
+// ── BOOKMARKS ──
+function renderBookmarks() {
+  if (!currentLesson) return;
+  const bms = getP(currentLesson.id).bookmarks;
+  const list = document.getElementById('bm-list');
+  if (!bms.length) {
+    list.innerHTML='<div class="bm-empty">Henüz yer işareti yok — Ekle butonu ile ekliyebilirsin</div>';
+    return;
   }
-});
+  const sorted = [...bms].sort((a,b)=>a.time-b.time);
+  list.innerHTML = sorted.map(bm=>`
+    <div class="bm-item">
+      <div class="bm-color" style="background:${bm.color}"></div>
+      <div class="bm-info">
+        <div class="bm-name">${bm.name}</div>
+        <div class="bm-time">${fmt(bm.time)}</div>
+      </div>
+      <div class="bm-actions">
+        <button class="bm-jump" onclick="jumpToBm(${bm.time})" title="Konuma git">▶</button>
+        <button class="bm-del" onclick="deleteBm('${bm.id}')" title="Sil">✕</button>
+      </div>
+    </div>`).join('');
+}
 
-audio.addEventListener('pause', () => {
-  document.getElementById('artwork').classList.remove('spinning');
-  document.getElementById('play-btn').textContent = '▶';
-  if (currentLesson) {
-    if (!progress[currentLesson.id]) progress[currentLesson.id] = {};
-    progress[currentLesson.id].time = Math.floor(audio.currentTime);
-    progress[currentLesson.id].duration = Math.floor(audio.duration);
-    save();
+function renderBmMarkers() {
+  if (!currentLesson||!audio.duration) return;
+  const track=document.getElementById('prog-track');
+  // Remove old markers
+  track.querySelectorAll('.bm-marker').forEach(m=>m.remove());
+  const bms = getP(currentLesson.id).bookmarks;
+  bms.forEach(bm=>{
+    const pct=(bm.time/audio.duration)*100;
+    const marker=document.createElement('div');
+    marker.className='bm-marker';
+    marker.style.left=pct+'%';
+    marker.style.background=bm.color;
+    marker.title=`${bm.name} — ${fmt(bm.time)}`;
+    marker.onclick=(e)=>{ e.stopPropagation(); jumpToBm(bm.time); };
+    track.appendChild(marker);
+  });
+}
+
+function jumpToBm(time) {
+  if (audio.src) { audio.currentTime=time; if(audio.paused) audio.play(); }
+  toast('▶ '+fmt(time)+' konumuna gidildi');
+}
+
+function deleteBm(bmId) {
+  if (!currentLesson) return;
+  const p=getP(currentLesson.id);
+  p.bookmarks=p.bookmarks.filter(b=>b.id!==bmId);
+  save(); renderBookmarks(); renderBmMarkers();
+  toast('Yer işareti silindi');
+}
+
+// ── BOOKMARK MODAL ──
+function openBmModal() {
+  const modal=document.getElementById('bm-modal');
+  const t=audio.currentTime||0;
+  document.getElementById('bm-modal-time').textContent='Şu anki konum: '+fmt(t);
+  document.getElementById('bm-name-input').value='';
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('selected'));
+  // reset color
+  selectedBmColor='#c9a84c';
+  document.querySelectorAll('.color-dot').forEach(d=>d.classList.toggle('selected',d.dataset.color===selectedBmColor));
+  modal.classList.add('show');
+}
+function closeBmModal(e) {
+  if (!e || e.target===document.getElementById('bm-modal')) {
+    document.getElementById('bm-modal').classList.remove('show');
   }
-});
+}
+function selectPreset(btn,name) {
+  document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  document.getElementById('bm-name-input').value=name;
+}
+function selectColor(dot) {
+  document.querySelectorAll('.color-dot').forEach(d=>d.classList.remove('selected'));
+  dot.classList.add('selected');
+  selectedBmColor=dot.dataset.color;
+}
+function saveBm() {
+  if (!currentLesson) return;
+  const name=document.getElementById('bm-name-input').value.trim()||'Yer işareti';
+  const time=Math.floor(audio.currentTime||0);
+  const p=getP(currentLesson.id);
+  p.bookmarks.push({ id:'bm'+Date.now(), name, time, color:selectedBmColor });
+  save();
+  document.getElementById('bm-modal').classList.remove('show');
+  renderBookmarks(); renderBmMarkers();
+  toast(`🔖 "${name}" eklendi — ${fmt(time)}`);
+}
 
 // ── ADD LESSON ──
 function saveLesson() {
-  const name = document.getElementById('f-name').value.trim();
+  const name=document.getElementById('f-name').value.trim();
   if (!name) { toast('Ders adı zorunlu!'); return; }
-  lessons.push({
-    id: 'l'+Date.now(),
-    name,
-    category: document.getElementById('f-cat').value.trim(),
-    url: document.getElementById('f-url').value.trim(),
-    note: document.getElementById('f-note').value.trim(),
-    addedAt: new Date().toISOString()
-  });
+  lessons.push({ id:'l'+Date.now(), name, category:document.getElementById('f-cat').value.trim(), url:document.getElementById('f-url').value.trim(), note:document.getElementById('f-note').value.trim(), addedAt:new Date().toISOString() });
   save();
-  ['f-name','f-cat','f-url','f-note'].forEach(id => document.getElementById(id).value='');
-  toast('✓ Ders kaydedildi!');
-  goHome();
+  ['f-name','f-cat','f-url','f-note'].forEach(id=>document.getElementById(id).value='');
+  toast('✓ Ders kaydedildi!'); goHome();
 }
 
 // ── STATS ──
 function renderStats() {
-  const total = lessons.length;
-  const done = Object.values(progress).filter(p=>p.done).length;
-  const inProgress = Object.values(progress).filter(p=>!p.done&&p.time>5).length;
-  const cats = new Set(lessons.filter(l=>l.category).map(l=>l.category)).size;
-  document.getElementById('stats-grid').innerHTML = [
+  const total=lessons.length;
+  const done=Object.values(progress).filter(p=>p.done).length;
+  const inProg=Object.values(progress).filter(p=>!p.done&&p.time>5).length;
+  const totalBms=Object.values(progress).reduce((s,p)=>s+(p.bookmarks?.length||0),0);
+  document.getElementById('stats-grid').innerHTML=[
     ['📚','Toplam Ders',total],
     ['✓','Tamamlanan',done],
-    ['▶','Devam Eden',inProgress],
-    ['📂','Kategori',cats]
+    ['▶','Devam Eden',inProg],
+    ['🔖','Yer İşareti',totalBms]
   ].map(([icon,label,val])=>`
     <div style="background:var(--bg2);border:1px solid rgba(255,255,255,0.06);border-radius:var(--r);padding:14px;text-align:center;">
-      <div style="font-size:24px;margin-bottom:6px;">${icon}</div>
-      <div style="font-size:22px;font-weight:700;color:var(--gold);">${val}</div>
-      <div style="font-size:11px;color:var(--text3);margin-top:2px;">${label}</div>
+      <div style="font-size:24px;margin-bottom:6px">${icon}</div>
+      <div style="font-size:22px;font-weight:700;color:var(--gold)">${val}</div>
+      <div style="font-size:11px;color:var(--text3);margin-top:2px">${label}</div>
     </div>`).join('');
 }
 
 // ── EXPORT / IMPORT ──
 function exportData() {
-  const blob = new Blob([JSON.stringify({lessons,progress},null,2)],{type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'maksure-yedek-'+new Date().toISOString().split('T')[0]+'.json';
-  a.click();
+  const blob=new Blob([JSON.stringify({lessons,progress},null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='maksure-yedek-'+new Date().toISOString().split('T')[0]+'.json'; a.click();
   toast('📤 Yedek indirildi!');
 }
 function triggerImport() { document.getElementById('import-file').click(); }
 function importData(input) {
-  const r = new FileReader();
-  r.onload = e => {
-    try {
-      const d = JSON.parse(e.target.result);
-      if (d.lessons) lessons = d.lessons;
-      if (d.progress) progress = d.progress;
-      save(); toast('✓ Yedek yüklendi!'); goHome();
-    } catch { toast('Hata: Geçersiz dosya'); }
-  };
+  const r=new FileReader();
+  r.onload=e=>{ try { const d=JSON.parse(e.target.result); if(d.lessons) lessons=d.lessons; if(d.progress) progress=d.progress; save(); toast('✓ Yedek yüklendi!'); goHome(); } catch { toast('Hata: Geçersiz dosya'); } };
   r.readAsText(input.files[0]);
 }
 
-// ── OVERLAY ──
-function showOverlay(msg) {
-  document.getElementById('overlay-text').textContent = msg;
-  document.getElementById('overlay').classList.add('show');
-}
+// ── OVERLAY / TOAST ──
+function showOverlay(m) { document.getElementById('overlay-text').textContent=m; document.getElementById('overlay').classList.add('show'); }
 function hideOverlay() { document.getElementById('overlay').classList.remove('show'); }
-
-// ── TOAST ──
-function toast(msg) {
-  const el = document.getElementById('toast');
-  el.textContent = msg; el.classList.add('show');
-  setTimeout(()=>el.classList.remove('show'), 2800);
-}
+function toast(m) { const e=document.getElementById('toast'); e.textContent=m; e.classList.add('show'); setTimeout(()=>e.classList.remove('show'),2800); }
 
 // ── UTILS ──
-function fmt(s) {
-  if (!s||isNaN(s)) return '0:00';
-  return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
-}
+function fmt(s) { if(!s||isNaN(s)) return '0:00'; return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
 
 // ── INIT ──
-if (creds) {
-  showScreen('home');
-  renderHome();
-  // Try to refresh lessons in background
-  setTimeout(fetchLessons, 500);
-} else {
-  showScreen('login');
-}
+if (creds) { showScreen('home'); renderHome(); setTimeout(fetchLessons,500); }
+else showScreen('login');
 </script>
 </body>
 </html>
