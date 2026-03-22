@@ -467,9 +467,48 @@ let selectedBmColor = '#c9a84c';
 const audio = document.getElementById('audio');
 const BASE = 'https://maksure.com';
 
+// ── JSONBIN CLOUD SYNC ──
+const BIN_ID = '69c000b4aa77b81da90a6108';
+const BIN_KEY = '$2a$10$q.qJ5K.We2hfDtMH4jyMZeXam34eS6Tf/3gQrxnMA.8zKWmQAUfF2';
+const BIN_URL = 'https://api.jsonbin.io/v3/b/' + BIN_ID;
+
+async function cloudLoad() {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 6000);
+    const res = await fetch(BIN_URL, {
+      signal: controller.signal,
+      headers: { 'X-Master-Key': BIN_KEY, 'X-Bin-Meta': 'false' }
+    });
+    clearTimeout(timeout);
+    if (!res.ok) return false;
+    const data = await res.json();
+    if (data.lessons && data.lessons.length > 0) {
+      lessons = data.lessons;
+      progress = data.progress || {};
+      localStorage.setItem('maks_lessons', JSON.stringify(lessons));
+      localStorage.setItem('maks_progress', JSON.stringify(progress));
+      return true;
+    }
+    return false;
+  } catch { return false; }
+}
+
+async function cloudSave() {
+  try {
+    await fetch(BIN_URL, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', 'X-Master-Key': BIN_KEY },
+      body: JSON.stringify({ lessons, progress })
+    });
+  } catch { /* sessizce gec */ }
+}
+
 function save() {
   localStorage.setItem('maks_lessons', JSON.stringify(lessons));
   localStorage.setItem('maks_progress', JSON.stringify(progress));
+  clearTimeout(cloudSaveTimer);
+  cloudSaveTimer = setTimeout(cloudSave, 3000);
 }
 function getP(id) {
   if (!progress[id]) progress[id] = { time:0, duration:0, done:false, bookmarks:[] };
@@ -901,13 +940,10 @@ function fmt(s) { if(!s||isNaN(s)) return '0:00'; return Math.floor(s/60)+':'+St
 // ── INIT ──
 if (creds) {
   showScreen('home');
-  renderHome();
-  showOverlay('Buluttan yükleniyor...');
+  renderHome(); // Önce yerel veriyle göster
+  // Arka planda buluttan güncelle
   cloudLoad().then(synced => {
-    hideOverlay();
-    renderHome();
-    if (synced) toast('☁️ Buluttan güncellendi!');
-    setTimeout(fetchLessons, 500);
+    if (synced) { renderHome(); toast('☁️ Buluttan güncellendi!'); }
   });
 } else showScreen('login');
 </script>
