@@ -370,8 +370,12 @@ body {
     <div class="divider"></div>
     <div class="sec-title" style="margin-bottom:12px">Veri Yönetimi</div>
     <button class="util-btn" onclick="exportData()">📤 Yedek Al (JSON)</button>
-    <button class="util-btn" onclick="triggerImport()">📥 Yedek Yükle</button>
-    <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(this)">
+    <button class="util-btn" onclick="triggerImportMerge()" style="border-color:rgba(74,124,89,0.3);color:var(--green)">➕ Dersleri Birleştirerek Yükle</button>
+    <div style="font-size:11px;color:var(--text3);margin:-4px 0 8px;padding:0 4px">Mevcut dersler silinmez, yeni dersler eklenir</div>
+    <button class="util-btn" onclick="triggerImportReplace()">♻️ Sıfırlayarak Yükle</button>
+    <div style="font-size:11px;color:var(--text3);margin:-4px 0 8px;padding:0 4px">Tüm veriler silinip dosyadakiler yüklenir</div>
+    <input type="file" id="import-file-merge" accept=".json" style="display:none" onchange="importDataMerge(this)">
+    <input type="file" id="import-file-replace" accept=".json" style="display:none" onchange="importDataReplace(this)">
   </div>
   <div class="bnav">
     <button class="bnav-item" onclick="navTo('home')"><span class="icon">🏠</span>Dersler</button>
@@ -841,10 +845,48 @@ function exportData() {
   a.download='maksure-yedek-'+new Date().toISOString().split('T')[0]+'.json'; a.click();
   toast('📤 Yedek indirildi!');
 }
-function triggerImport() { document.getElementById('import-file').click(); }
-function importData(input) {
+
+// Birleştirerek yükle (mevcut dersler silinmez)
+function triggerImportMerge() {
+  document.getElementById('import-file-merge').click();
+}
+function importDataMerge(input) {
   const r=new FileReader();
-  r.onload=e=>{ try { const d=JSON.parse(e.target.result); if(d.lessons) lessons=d.lessons; if(d.progress) progress=d.progress; save(); toast('✓ Yedek yüklendi!'); goHome(); } catch { toast('Hata: Geçersiz dosya'); } };
+  r.onload=e=>{
+    try {
+      const d=JSON.parse(e.target.result);
+      if (d.lessons) {
+        const existingIds=new Set(lessons.map(l=>l.id));
+        let added=0;
+        for (const l of d.lessons) {
+          if (!existingIds.has(l.id)) { lessons.push(l); existingIds.add(l.id); added++; }
+        }
+        // Progress birleştir
+        for (const [k,v] of Object.entries(d.progress||{})) {
+          if (!progress[k]) progress[k]=v;
+        }
+        save(); toast(`✓ ${added} yeni ders eklendi! (Toplam: ${lessons.length})`); goHome();
+      }
+    } catch { toast('Hata: Geçersiz dosya'); }
+  };
+  r.readAsText(input.files[0]);
+}
+
+// Üzerine yazarak yükle (tam sıfırlama)
+function triggerImportReplace() {
+  if (!confirm('Dikkat! Mevcut tüm dersler ve yer işaretleri silinecek. Emin misin?')) return;
+  document.getElementById('import-file-replace').click();
+}
+function importDataReplace(input) {
+  const r=new FileReader();
+  r.onload=e=>{
+    try {
+      const d=JSON.parse(e.target.result);
+      if(d.lessons) lessons=d.lessons;
+      if(d.progress) progress=d.progress;
+      save(); toast(`✓ Yedek yüklendi! (${lessons.length} ders)`); goHome();
+    } catch { toast('Hata: Geçersiz dosya'); }
+  };
   r.readAsText(input.files[0]);
 }
 
@@ -857,8 +899,17 @@ function toast(m) { const e=document.getElementById('toast'); e.textContent=m; e
 function fmt(s) { if(!s||isNaN(s)) return '0:00'; return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
 
 // ── INIT ──
-if (creds) { showScreen('home'); renderHome(); setTimeout(fetchLessons,500); }
-else showScreen('login');
+if (creds) {
+  showScreen('home');
+  renderHome();
+  showOverlay('Buluttan yükleniyor...');
+  cloudLoad().then(synced => {
+    hideOverlay();
+    renderHome();
+    if (synced) toast('☁️ Buluttan güncellendi!');
+    setTimeout(fetchLessons, 500);
+  });
+} else showScreen('login');
 </script>
 </body>
 </html>
